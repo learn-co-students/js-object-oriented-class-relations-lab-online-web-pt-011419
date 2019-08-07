@@ -31,9 +31,8 @@ class Passenger{
     }
 
     drivers(){
-        debugger;
-        //this.trips().filter(trip => {return trip.driver})
-        return store.drivers.filter(driver => driver.passengerId === this.id)
+        return this.trips().map(trip => {return trip.driver()})
+
     }
 }
 
@@ -56,11 +55,3 @@ class Trip{
         })
     }
 }
-
-
-driver = new Driver("Alfie")
-passenger = new Passenger("Bob")
-firstTrip = new Trip(driver, passenger)
-secondPassenger = new Passenger("Susan")
-secondTrip = new Trip(driver, secondPassenger)
-passenger.drivers()
